@@ -13,7 +13,7 @@ image and network, at the end execute schema.sql and data.sql files to create ta
 
 ### To Run Locally  Without Docker
 
-Create database (name is "warehouse") and execute sql file /resources/schema.sql
+Create database (name is "warehouse") and execute sql files /resources/schema.sql  and "/resources/data.sql"
 
 Set active profile to dev to run locally
 
