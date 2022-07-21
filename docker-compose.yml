@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mysqldb:
+    image: mysql:8
+    container_name: warehouse-db
+    ports:
+      - "3306:3306"
+    networks:
+      - warehouse-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=warehouse
+  warehouse-api:
+    build: ./
+    restart: on-failure
+    container_name: warehouse-rest-api
+    ports:
+      - "8080:8080"
+    networks:
+      - warehouse-mysql
+    depends_on:
+      - mysqldb
+networks:
+  warehouse-mysql:
+    driver: bridge
